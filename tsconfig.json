@@ -4,8 +4,9 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "target": "ES6",
+    "moduleResolution": "node",
     "downlevelIteration": true,
-    "lib": ["es6", "dom.iterable"],
+    "lib": ["es6", "dom.iterable", "dom"],
     "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true

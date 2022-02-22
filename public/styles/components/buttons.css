@@ -1,0 +1,12 @@
+button {
+  margin: 10px;
+  padding: 10px;
+  height: 70px;
+  font-family: 'El Messiri', sans-serif;
+  font-size: 1.7em;
+  text-shadow: 4px 4px 3px #141414cf;
+  box-shadow: 3px 3px 5px #00000090;
+  background-color: #3d4e44;
+  border-radius: 15px;
+  color: white;
+  opacity: 0.9; }

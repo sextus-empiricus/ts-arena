@@ -1,0 +1,14 @@
+@import '../variables';
+
+h1 {
+  margin: 10px;
+  font-size: 2rem;
+  font-family: "Cormorant Unicase", serif;
+  color: $white;
+  text-shadow: 5px 3px 3px $shadow-color;
+}
+
+p {
+  font-family: 'Consolas', sans-serif;
+  color: $grey;
+}

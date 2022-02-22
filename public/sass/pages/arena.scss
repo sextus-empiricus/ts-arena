@@ -1,0 +1,65 @@
+.arena.main-wrapper {
+  padding: 15px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .arena.warriors {
+    margin: 15px;
+    padding: 15px;
+
+    height: 100%;
+    width: 70vw;
+    background-color: tomato;
+
+    .warriors-info-wrapper {
+      height: 90%;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .warrior-info-box {
+        margin: 15px;
+        padding: 15px;
+
+        width: 90%;
+        height: 30%;
+        background-color: #eba6a6;
+      }
+    }
+  }
+
+  .arena.box {
+    margin: 15px;
+    padding: 15px;
+    height: 100%;
+    width: 30vw;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: center;
+    //text-align: center;
+    background-color: tomato;
+
+    .list-box {
+      height: 90%;
+      max-width: 100%;
+      background-color: saddlebrown;
+      overflow-y: scroll;
+
+      .list-element {
+        margin-bottom: 10px;
+        //height: 10%;
+        background-color: darksalmon;
+      }
+
+      .checked {
+        background-color: lightcoral;
+      }
+    }
+
+  }
+}

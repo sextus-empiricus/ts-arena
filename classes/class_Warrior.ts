@@ -9,6 +9,7 @@ export class Warrior {
     public readonly _defence: number;       // - obrona,
     public readonly _endurance: number;     // - wytrzymałość,
     public _wins: number;
+    public readonly _createdAt?: Date;
 
     constructor(obj: Interface_Warrior) {
         this._id = obj.id ?? uuid();
@@ -18,6 +19,7 @@ export class Warrior {
         this._defence = obj.defence;
         this._endurance = obj.endurance;
         this._wins = obj.wins ?? 0;
+        this._createdAt = obj.createdAt ?? null
     }
 
     public get name(): string {

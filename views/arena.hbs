@@ -1,0 +1,53 @@
+<div class="arena main-wrapper">
+
+    <div class="arena warriors">
+        <h1>Battle:</h1>
+
+        <div class="warriors-info-wrapper">
+            <div class="warrior-info-box warrior1">
+                <div data-id="{{warrior1._id}}" class="list-element ranking">
+                    <p>name: {{warrior1._name}}</p>
+                    <p>strength: {{warrior1._strength}}</p>
+                    <p>agility: {{warrior1._agility}}</p>
+                    <p>defence: {{warrior1._defence}}</p>
+                    <p>endurance: {{warrior1._endurance}}</p>
+                    <p>wins: {{warrior1._wins}}</p>
+                </div>
+            </div>
+
+            <div class="icon">⚔</div>
+
+            <div class="warrior-info-box warrior2">
+                <div data-id="{{warrior2._id}}" class="list-element ranking">
+                    <p>name: {{warrior2._name}}</p>
+                    <p>strength: {{warrior2._strength}}</p>
+                    <p>agility: {{warrior2._agility}}</p>
+                    <p>defence: {{warrior2._defence}}</p>
+                    <p>endurance: {{warrior2._endurance}}</p>
+                    <p>wins: {{warrior2._wins}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="arena box">
+        <h1>Logs:</h1>
+
+        <div class="list-box">
+            {{#each fightStats}}
+                <div class="list-element log" hidden>
+                    <p>Round: {{round @index}}</p>
+                    <p>{{this.attackerName}} is attacking {{this.attackedName}}</p>
+                    <p>Defencer's shield changed from {{this.attackedPrevShield}} to {{this.attackedActShield}}</p>
+                    <p>Defencer's HP changed from: {{this.attackedPrevHp}} to {{this.attackedActHp}}</p>
+                </div>
+            {{/each}}
+
+            <div class="list-element winner-element" hidden>
+                <p>{{looser._name}} is dead!</p>
+                <p>{{winner._name}} won the game and glory!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="./front_arena.js"></script>

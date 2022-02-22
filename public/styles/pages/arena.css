@@ -1,0 +1,42 @@
+.arena.main-wrapper {
+  padding: 15px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .arena.main-wrapper .arena.warriors {
+    margin: 15px;
+    padding: 15px;
+    height: 100%;
+    width: 70vw;
+    background-color: tomato; }
+    .arena.main-wrapper .arena.warriors .warriors-info-wrapper {
+      height: 90%;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .arena.main-wrapper .arena.warriors .warriors-info-wrapper .warrior-info-box {
+        margin: 15px;
+        padding: 15px;
+        width: 90%;
+        height: 30%;
+        background-color: #eba6a6; }
+  .arena.main-wrapper .arena.box {
+    margin: 15px;
+    padding: 15px;
+    height: 100%;
+    width: 30vw;
+    background-color: tomato; }
+    .arena.main-wrapper .arena.box .list-box {
+      height: 90%;
+      max-width: 100%;
+      background-color: saddlebrown;
+      overflow-y: scroll; }
+      .arena.main-wrapper .arena.box .list-box .list-element {
+        margin-bottom: 10px;
+        background-color: darksalmon; }
+      .arena.main-wrapper .arena.box .list-box .checked {
+        background-color: lightcoral; }

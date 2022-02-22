@@ -1,0 +1,86 @@
+<div class="hall main-wrapper">
+
+
+    <video src="video/darkness_big.mp4" autoplay muted loop></video>
+    <div class="bg-video-shadow"></div>
+
+    <div class="hall box ranking">
+        <h1>Ranking</h1>
+
+        <div class="list-box ranking">
+
+            {{#each ranking}}
+                <div data-id="{{this._id}}" class="list-element ranking">
+                    <p>name: {{this._name}}</p>
+                    <p>strength: {{this._strength}}</p>
+                    <p>agility: {{this._agility}}</p>
+                    <p>defence: {{this._defence}}</p>
+                    <p>endurance: {{this._endurance}}</p>
+                    <p>wins: {{this._wins}}</p>
+                </div>
+            {{/each}}
+
+
+        </div>
+
+    </div>
+
+    <div class="hall box warrior-list">
+        <h1>Chose warriors</h1>
+
+        <div class="list-box warriors">
+            {{#each records}}
+                <div data-id="{{this._id}}" class="list-element warrior-element" data-checked="false">
+                    <p>name: {{this._name}}</p>
+                    <p>strength: {{this._strength}}</p>
+                    <p>agility: {{this._agility}}</p>
+                    <p>defence: {{this._defence}}</p>
+                    <p>endurance: {{this._endurance}}</p>
+                    <p>wins: {{this._wins}}</p>
+
+                    <button class="delete-button">delete</button>
+                </div>
+            {{/each}}
+
+        </div>
+        <button id="fight-btn">Fight!</button>
+    </div>
+
+    <div class="hall box create-warrior">
+        <h1>Create a warrior</h1>
+
+        <form id="create-form">
+            <label for="input-name">
+                <input id="input-name" type="text" placeholder="name">
+            </label>
+
+            <label for="input-strength">
+                <input id="input-strength" type="number" placeholder="strength...">
+            </label>
+
+            <label for="input-agility">
+                <input id="input-agility" type="number" placeholder="agility...">
+            </label>
+
+            <label for="input-defence">
+                <input id="input-defence" type="number" placeholder="defence...">
+            </label>
+
+            <label for="input-endurance">
+                <input id="input-endurance" type="number" placeholder="endurance...">
+            </label>
+
+            <button type="submit">Create</button>
+        </form>
+
+        <div class="info"><p>You have 10 points that you need to allocate to your character's statistics.</p>
+        </div>
+
+        <div id="log-box" class="hall logs">
+            <p>logs:</p>
+        </div>
+
+    </div>
+</div>
+
+<script type="module" src="./front_hall.js"></script>

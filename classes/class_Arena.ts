@@ -70,10 +70,10 @@ export class Arena {
                 attackerName: attacker.name,
                 attackerStrength: attacker.strength,
                 attackedName: attacked.name,
-                attackedOldShield: prevShield,
-                attackedNewShield: attacked === this.warrior1 ? warrior1Shield : warrior2Shield,
-                attackedPrevdHp: prevHp,
-                attackedNewHp: attacked === this.warrior1 ? warrior1Hp : warrior2Hp,
+                attackedPrevShield: prevShield,
+                attackedActShield: attacked === this.warrior1 ? warrior1Shield : warrior2Shield,
+                attackedPrevHp: prevHp,
+                attackedActHp: attacked === this.warrior1 ? warrior1Hp : warrior2Hp,
                 winner,
             }
             stats.push(round);

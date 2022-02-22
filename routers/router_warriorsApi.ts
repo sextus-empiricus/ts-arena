@@ -1,10 +1,11 @@
-import * as expres from 'express';
+import * as express from 'express';
 import {warriorsController} from '../controllers/controller_warrios';
 
-export const Router = expres.Router();
+export const Router = express.Router();
 
 Router.route('/')
-    .get(warriorsController.getAll);
+    .get(warriorsController.getAll)
+    .post(warriorsController.postOne)
 
 Router.route('/:id')
     .get(warriorsController.getOneById)

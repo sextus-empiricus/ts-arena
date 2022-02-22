@@ -6,4 +6,5 @@ export interface Interface_Warrior {
     defence: number;            // - obrona,
     endurance: number;          // - wytrzymałość,
     wins?: number;
+    createdAt?: Date;
 }
