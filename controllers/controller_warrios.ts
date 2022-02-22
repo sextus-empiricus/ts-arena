@@ -28,8 +28,8 @@ export class warriorsController {
     })
 
     public static postOne = catchAsync(async (req: Request, res: Response) => {
-        const {name, strength, agility, defence, endurance} = req.body;
-        const newInstance: WarriorRecord = new WarriorRecord({name, strength, agility, defence, endurance})
+        const {name, strength, agility, defence, endurance, password} = req.body;
+        const newInstance: WarriorRecord = new WarriorRecord({name, strength, agility, defence, endurance, password})
         await newInstance.insertMe();
         res.status(200).json({
             status: 'success',
@@ -38,9 +38,8 @@ export class warriorsController {
     })
 
     public static deleteOneById = catchAsync(async (req: Request, res: Response) => {
-
+        console.log(req.params.id)
         await WarriorRecord.deleteOneById(req.params.id);
-
         res.status(200).json({
             status: 'success',
         })

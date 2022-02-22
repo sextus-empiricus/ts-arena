@@ -76,6 +76,9 @@ video {
     .home.main-wrapper .home.box h1 {
       font-size: 4.3em;
       color: #bfbfbf; }
+    .home.main-wrapper .home.box .btn-start {
+      margin-bottom: 7px;
+      opacity: 0.85; }
 
 .jello-horizontal {
   animation: jello-horizontal 0.9s both; }

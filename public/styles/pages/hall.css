@@ -1,18 +1,3 @@
-::-webkit-scrollbar {
-  width: 10px;
-  height: 100%;
-  background-color: #00000029;
-  /* or add it to the track */
-  border-radius: 1px; }
-
-::-webkit-scrollbar-thumb {
-  background-color: #3a4a40a6;
-  /* color of the scroll thumb */
-  border-radius: 2px;
-  /* roundness of the scroll thumb */
-  border: 0.5px solid #ffffff0d;
-  /* creates padding around scroll thumb */ }
-
 .hall.main-wrapper {
   padding: 15px;
   height: 100%;
@@ -20,6 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center; }
+  .hall.main-wrapper .hall.box.warrior-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
   .hall.main-wrapper .hall.box {
     margin: 20px;
     padding: 15px;
@@ -51,10 +40,12 @@
           color: #b793b9; }
         .hall.main-wrapper .hall.box .list-box .list-element button {
           min-width: 100px;
+          max-height: 50px;
           opacity: .5; }
       .hall.main-wrapper .hall.box .list-box .checked {
         background-color: #6e78696e; }
     .hall.main-wrapper .hall.box .fight-btn {
+      margin-top: 15px;
       width: 100%; }
     .hall.main-wrapper .hall.box .hall.logs {
       background-color: saddlebrown;

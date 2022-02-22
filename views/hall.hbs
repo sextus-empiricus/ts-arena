@@ -8,18 +8,17 @@
         <h1>Ranking</h1>
 
         <div class="list-box ranking">
-
             {{#each ranking}}
                 <div data-id="{{this._id}}" class="list-element ranking">
-                    <p>name: {{this._name}}</p>
-                    <p>strength: {{this._strength}}</p>
-                    <p>agility: {{this._agility}}</p>
-                    <p>defence: {{this._defence}}</p>
-                    <p>endurance: {{this._endurance}}</p>
-                    <p>wins: {{this._wins}}</p>
+                    <div class="ranking-element-name">
+                            <p>#{{round @index}}</p>
+                            <p><span class="colored-name">{{this._name}}</span></p>
+                    </div>
+                    <div class="ranking-element-wins">
+                        <p>wins: <span class="colored-wins">{{this._wins}}</span></p>
+                    </div>
                 </div>
             {{/each}}
-
 
         </div>
 
@@ -38,7 +37,7 @@
                         <p>endurance: <span class="colored">{{this._endurance}}</span></p>
                         <p>wins: <span class="colored-wins">{{this._wins}}</span></p>
                     </div>
-                    <div class="delete-btn">
+                    <div class="delete-button-wrap">
                         <button class="delete-button">Kill</button>
                     </div>
                 </div>
@@ -70,6 +69,10 @@
 
             <label for="input-endurance">
                 <input id="input-endurance" type="number" placeholder="endurance...">
+            </label>
+
+            <label for="input-password">
+                <input id="input-password" type="password" placeholder="password...">
             </label>
 
             <button type="submit">Create</button>

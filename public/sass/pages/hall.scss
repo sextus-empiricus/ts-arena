@@ -1,20 +1,5 @@
 @import '../variables';
 
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 100%;
-  background-color: #00000029; /* or add it to the track */
-  border-radius: 1px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3a4a40a6;    /* color of the scroll thumb */
-  border-radius: 2px;       /* roundness of the scroll thumb */
-  border: 0.5px solid #ffffff0d;  /* creates padding around scroll thumb */
-}
-
-
 .hall.main-wrapper {
   padding: 15px;
   height: 100%;
@@ -23,15 +8,18 @@
   justify-content: center;
   align-items: center;
 
+  .hall.box.warrior-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .hall.box {
     margin: 20px;
     padding: 15px;
     height: 100%;
     width: 500px;
-    //display: flex;
-    //flex-direction: column;
-    //justify-content: center;
-    //text-align: center;
+
     background: rgb(45, 74, 40);
     background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
     box-shadow: 0 0 15px $shadow-color;
@@ -67,6 +55,7 @@
 
         button {
           min-width: 100px;
+          max-height: 50px;
           opacity: .5;
         }
 
@@ -78,6 +67,7 @@
     }
 
     .fight-btn {
+      margin-top: 15px;
       width: 100%;
     }
 

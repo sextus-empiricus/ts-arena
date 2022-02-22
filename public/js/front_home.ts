@@ -1,7 +1,9 @@
 import {goTo} from './utils/goTo.js';
 import {fadeAudioOut} from './utils/fadeAudioOut.js';
+import {playSound} from './utils/playSound.js';
 
-const click: HTMLAudioElement = new Audio('../audio/clicks/click.mp3');
+const clickSound: HTMLAudioElement = new Audio('../audio/clicks/click.mp3');
+const errorSound: HTMLAudioElement = new Audio('../audio/clicks/error.mp3');
 const homeTheme: HTMLAudioElement = new Audio('../audio/home_theme.mp3');
 const btnStart = document.querySelector('#btn-start') as HTMLButtonElement;
 const btnAudio = document.querySelector('#audioBtn') as HTMLButtonElement;
@@ -44,18 +46,19 @@ scrollStory();
 
 //  #listeners:
 btnStart.addEventListener('click', () => {
-    click.volume = 0.4;
-    click.play().then(() => {
-        fadeAudioOut(homeTheme);
-        goTo('/hall', 1000);
-    });
+    playSound(clickSound);
+    fadeAudioOut(homeTheme);
+    goTo('/hall', 1000);
 })
-    
+
 btnAudio.addEventListener('click', ()=> {
     if([...btnAudio.classList].includes('is-playing')) {
+        playSound(errorSound);
         homeTheme.pause();
+        homeTheme.currentTime = 0;
         btnAudio.classList.remove('is-playing');
     } else {
+        // playSound(clickSound);
         playAudio(homeTheme, true, true, 1);
         btnAudio.classList.add('is-playing')
     }

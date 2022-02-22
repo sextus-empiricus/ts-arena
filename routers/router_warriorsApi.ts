@@ -1,5 +1,6 @@
 import * as express from 'express';
 import {warriorsController} from '../controllers/controller_warrios';
+import {protect} from '../controllers/controller_auth';
 
 export const Router = express.Router();
 
@@ -9,5 +10,5 @@ Router.route('/')
 
 Router.route('/:id')
     .get(warriorsController.getOneById)
-    .delete(warriorsController.deleteOneById)
+    .delete(protect, warriorsController.deleteOneById)
 ;

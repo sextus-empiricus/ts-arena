@@ -11,6 +11,23 @@ body {
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+  background-color: #00000029;
+  /* or add it to the track */
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3a4a40a6;
+  /* color of the scroll thumb */
+  border-radius: 2px;
+  /* roundness of the scroll thumb */
+  border: 0.5px solid #ffffff0d;
+  /* creates padding around scroll thumb */
+}
+
 h1 {
   margin: 10px;
   font-size: 2rem;
@@ -144,6 +161,10 @@ video {
   font-size: 4.3em;
   color: #bfbfbf;
 }
+.home.main-wrapper .home.box .btn-start {
+  margin-bottom: 7px;
+  opacity: 0.85;
+}
 
 .jello-horizontal {
   animation: jello-horizontal 0.9s both;
@@ -179,23 +200,6 @@ video {
     transform: scale3d(1, 1, 1);
   }
 }
-::-webkit-scrollbar {
-  width: 10px;
-  height: 100%;
-  background-color: #00000029;
-  /* or add it to the track */
-  border-radius: 1px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3a4a40a6;
-  /* color of the scroll thumb */
-  border-radius: 2px;
-  /* roundness of the scroll thumb */
-  border: 0.5px solid #ffffff0d;
-  /* creates padding around scroll thumb */
-}
-
 .hall.main-wrapper {
   padding: 15px;
   height: 100%;
@@ -203,6 +207,11 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hall.main-wrapper .hall.box.warrior-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hall.main-wrapper .hall.box {
   margin: 20px;
@@ -241,12 +250,14 @@ video {
 }
 .hall.main-wrapper .hall.box .list-box .list-element button {
   min-width: 100px;
+  max-height: 50px;
   opacity: 0.5;
 }
 .hall.main-wrapper .hall.box .list-box .checked {
   background-color: #6e78696e;
 }
 .hall.main-wrapper .hall.box .fight-btn {
+  margin-top: 15px;
   width: 100%;
 }
 .hall.main-wrapper .hall.box .hall.logs {

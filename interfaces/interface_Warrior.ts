@@ -7,4 +7,5 @@ export interface Interface_Warrior {
     endurance: number;          // - wytrzymałość,
     wins?: number;
     createdAt?: Date;
+    password: string,
 }

@@ -3,6 +3,7 @@ import 'dotenv/config';
 import {Warrior} from '../../classes/class_Warrior';
 import {Interface_Warrior} from '../../interfaces/interface_Warrior';
 import {MyError} from '../../classes/class_MyError';
+import {hash, compare} from 'bcryptjs';
 
 export class WarriorRecord extends Warrior {
     public readonly _id: string;
@@ -13,6 +14,7 @@ export class WarriorRecord extends Warrior {
     public readonly _endurance: number;     // - wytrzymałość,
     public _wins: number;
     public readonly _createdAt: Date;
+    public readonly _password: string;
 
     constructor(obj: Interface_Warrior) {
         super(obj);
@@ -25,13 +27,18 @@ export class WarriorRecord extends Warrior {
 
     public async insertMe(): Promise<string> {
         this.validate();
-        await pool.query(`INSERT INTO ${process.env.DB_TABLES_WARRIORS} VALUES (:id, :name, :strength, :agility, :defence, :endurance, DEFAULT, DEFAULT);`, {
+        const passHash = await hash(String(this._password), 10);
+        console.log(passHash)
+
+
+        await pool.query(`INSERT INTO ${process.env.DB_TABLES_WARRIORS} VALUES (:id, :name, :strength, :agility, :defence, :endurance, DEFAULT, DEFAULT, :password);`, {
             id: this._id ?? 'DEFAULT',
             name: this._name,
             strength: this._strength,
             agility: this._agility,
             defence: this._defence,
             endurance: this._endurance,
+            password: passHash
         });
         return this._id;
     }
@@ -59,7 +66,7 @@ export class WarriorRecord extends Warrior {
     }
 
     public static async getRanking(): Promise<WarriorRecord[]> {
-        const results = (await pool.query(`SELECT * FROM ${process.env.DB_TABLES_WARRIORS} ORDER BY wins DESC`))[0];
+        const results = (await pool.query(`SELECT * FROM ${process.env.DB_TABLES_WARRIORS} ORDER BY wins DESC LIMIT 10`))[0];
         return results.map((el: any) => {
             return new WarriorRecord(el)
         })
