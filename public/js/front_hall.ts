@@ -74,7 +74,7 @@ deleteBtns.forEach(btn => {
         e.stopPropagation();
         const nowTimestamp: number = new Date().getTime();
         const clickedBtn = e.target as HTMLButtonElement;
-        const id: string = (clickedBtn.parentNode as HTMLElement).dataset.id;
+        const id: string = (clickedBtn.parentNode.parentNode as HTMLElement).dataset.id;
 
         try {
             // @ts-ignore

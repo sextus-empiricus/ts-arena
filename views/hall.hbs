@@ -31,19 +31,21 @@
         <div class="list-box warriors">
             {{#each records}}
                 <div data-id="{{this._id}}" class="list-element warrior-element" data-checked="false">
-                    <p>name: {{this._name}}</p>
-                    <p>strength: {{this._strength}}</p>
-                    <p>agility: {{this._agility}}</p>
-                    <p>defence: {{this._defence}}</p>
-                    <p>endurance: {{this._endurance}}</p>
-                    <p>wins: {{this._wins}}</p>
-
-                    <button class="delete-button">delete</button>
+                    <div class="warrior-stats"><p>name: <span class="colored-name">{{this._name}}</span></p>
+                        <p>strength: <span class="colored">{{this._strength}}</span></p>
+                        <p>agility: <span class="colored">{{this._agility}}</span></p>
+                        <p>defence: <span class="colored">{{this._defence}}</span></p>
+                        <p>endurance: <span class="colored">{{this._endurance}}</span></p>
+                        <p>wins: <span class="colored-wins">{{this._wins}}</span></p>
+                    </div>
+                    <div class="delete-btn">
+                        <button class="delete-button">Kill</button>
+                    </div>
                 </div>
             {{/each}}
-
         </div>
-        <button id="fight-btn">Fight!</button>
+
+        <button id="fight-btn" class="fight-btn">Fight!</button>
     </div>
 
     <div class="hall box create-warrior">

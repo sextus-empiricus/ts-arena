@@ -50,7 +50,7 @@ btnStart.addEventListener('click', () => {
         goTo('/hall', 1000);
     });
 })
-
+    
 btnAudio.addEventListener('click', ()=> {
     if([...btnAudio.classList].includes('is-playing')) {
         homeTheme.pause();
