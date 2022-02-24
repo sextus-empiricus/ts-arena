@@ -38,7 +38,6 @@ export class warriorsController {
     })
 
     public static deleteOneById = catchAsync(async (req: Request, res: Response) => {
-        console.log(req.params.id)
         await WarriorRecord.deleteOneById(req.params.id);
         res.status(200).json({
             status: 'success',

@@ -7,7 +7,6 @@ export const createCreatingWarriorLog: any = (msg: string) => {
     log.classList.add('hall');
     log.classList.add('log');
     log.textContent = `${now}: ${msg}`;
-
     box.appendChild(log);
     box.scrollTop = box.scrollHeight; //scroll to bottom;
 }

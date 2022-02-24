@@ -49,22 +49,11 @@ video {
         opacity: .35;
         letter-spacing: .5px;
         line-height: 40px; }
-    .home.main-wrapper .story-wrapper .audio-btn {
-      position: absolute;
-      left: 20px;
-      bottom: 20px;
-      max-height: 40px;
-      border-radius: 50px;
-      justify-content: center;
-      opacity: 0.4; }
-      .home.main-wrapper .story-wrapper .audio-btn i {
-        opacity: 1;
-        color: #bfbfbf; }
   .home.main-wrapper .home.box {
     margin: 15px;
     padding: 15px;
     height: 95%;
-    width: 500px;
+    width: 35vw;
     display: flex;
     flex-direction: column;
     justify-content: center;

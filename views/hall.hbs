@@ -1,5 +1,15 @@
 <div class="hall main-wrapper">
 
+    <div class="deleting-shadow" id="deleting-shadow"></div>
+
+    <div class="deleting-box" id="deleting-box">
+        <i class="fa-solid fa-xmark" id="close-deleting-box"></i>
+        <p>Provide an password for delete.</p>
+        <label for="provide-password">
+            <input id="input-provide-password" type="password" tabindex="0">
+        </label>
+        <button class="provide-delete" id="provide-delete-button">Kill</button>
+    </div>
 
     <video src="video/darkness_big.mp4" autoplay muted loop></video>
     <div class="bg-video-shadow"></div>
@@ -11,17 +21,18 @@
             {{#each ranking}}
                 <div data-id="{{this._id}}" class="list-element ranking">
                     <div class="ranking-element-name">
-                            <p>#{{round @index}}</p>
-                            <p><span class="colored-name">{{this._name}}</span></p>
+                        <p>#{{round @index}}</p>
+                        <p><span class="colored-name">{{this._name}}</span></p>
                     </div>
                     <div class="ranking-element-wins">
                         <p>wins: <span class="colored-wins">{{this._wins}}</span></p>
                     </div>
                 </div>
             {{/each}}
-
         </div>
-
+        <button id="audioBtn" class="audio-btn">
+            <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
+        </button>
     </div>
 
     <div class="hall box warrior-list">
@@ -38,7 +49,7 @@
                         <p>wins: <span class="colored-wins">{{this._wins}}</span></p>
                     </div>
                     <div class="delete-button-wrap">
-                        <button class="delete-button">Kill</button>
+                        <button class="delete-button">delete</button>
                     </div>
                 </div>
             {{/each}}
@@ -50,42 +61,44 @@
     <div class="hall box create-warrior">
         <h1>Create a warrior</h1>
 
-        <form id="create-form">
-            <label for="input-name">
-                <input id="input-name" type="text" placeholder="name">
+        <form id="create-form" class="create-form">
+            <label for="input-name">Name:
+                <input id="input-name" type="text" tabindex="0">
             </label>
 
-            <label for="input-strength">
-                <input id="input-strength" type="number" placeholder="strength...">
+            <label for="input-strength">Strength:
+                <input id="input-strength" type="number">
             </label>
 
-            <label for="input-agility">
-                <input id="input-agility" type="number" placeholder="agility...">
+            <label for="input-agility">Agility:
+                <input id="input-agility" type="number">
             </label>
 
-            <label for="input-defence">
-                <input id="input-defence" type="number" placeholder="defence...">
+            <label for="input-defence">Defence:
+                <input id="input-defence" type="number">
             </label>
 
-            <label for="input-endurance">
-                <input id="input-endurance" type="number" placeholder="endurance...">
+            <label for="input-endurance">Endurance:
+                <input id="input-endurance" type="number">
             </label>
 
-            <label for="input-password">
-                <input id="input-password" type="password" placeholder="password...">
+            <label for="input-password">Password will be required when deleting a warrior.
+                <input id="input-password" type="password">
             </label>
+            <div class="info"><p>You have 10 points that you need to allocate to your character's statistics.</p></div>
 
             <button type="submit">Create</button>
         </form>
 
-        <div class="info"><p>You have 10 points that you need to allocate to your character's statistics.</p>
-        </div>
 
         <div id="log-box" class="hall logs">
             <p>logs:</p>
         </div>
 
     </div>
+
+
+
 </div>
 
 <script type="module" src="./front_hall.js"></script>

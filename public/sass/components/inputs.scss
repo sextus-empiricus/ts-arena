@@ -1,0 +1,47 @@
+@import '../base/variables';
+
+input {
+  padding: 3px 12px;
+  width: 100%;
+
+  font-family: "El Messiri", sans-serif;
+  font-size: 1.8em;
+  color: $white;
+
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-image: none;
+  background-color: #6ad7a00d;
+  box-shadow: 2px 2px 4px #2e312ee6;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+input[type=number] {
+  text-align: center;
+}
+input:focus-visible {
+  animation-name: focus;
+  animation-duration: .5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label {
+  margin-bottom: 8px;
+  font-family: "El Messiri", sans-serif;
+  font-size: 1.2em;
+  color: $white;
+}
+
+
+@keyframes focus {
+  from {box-shadow: 0 0 5px #274431;}
+  to {box-shadow: 0 0 10px #3c8d58b3;}
+}

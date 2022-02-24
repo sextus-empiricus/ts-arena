@@ -1,4 +1,4 @@
-@import '../_variables';
+@import '../base/variables';
 
 video {
   position: absolute;
@@ -59,27 +59,13 @@ video {
         line-height: 40px;
       }
     }
-
-    .audio-btn {
-      position: absolute;
-      left: 20px;
-      bottom: 20px;
-      max-height: 40px;
-      border-radius: 50px;
-      justify-content: center;
-      opacity: 0.4;
-      i {
-        opacity: 1;
-        color: $white;
-      }
-    }
   }
 
   .home.box {
     margin: 15px;
     padding: 15px;
     height: 95%;
-    width: 500px;
+    width: 35vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,6 +83,9 @@ video {
       opacity: 0.85;
     }
   }
+
+//AUDIO BUTTON
+
 }
 
 

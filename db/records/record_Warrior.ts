@@ -28,8 +28,6 @@ export class WarriorRecord extends Warrior {
     public async insertMe(): Promise<string> {
         this.validate();
         const passHash = await hash(String(this._password), 10);
-        console.log(passHash)
-
 
         await pool.query(`INSERT INTO ${process.env.DB_TABLES_WARRIORS} VALUES (:id, :name, :strength, :agility, :defence, :endurance, DEFAULT, DEFAULT, :password);`, {
             id: this._id ?? 'DEFAULT',

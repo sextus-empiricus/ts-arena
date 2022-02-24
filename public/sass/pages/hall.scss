@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../base/variables';
 
 .hall.main-wrapper {
   padding: 15px;
@@ -14,11 +14,71 @@
     justify-content: center;
   }
 
+  .deleting-shadow {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle, #000000 15%, #000000b5 35%);
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .deleting-box {
+    display: none;
+    position: absolute;
+    //display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    z-index: 3;
+
+    background: rgb(45, 74, 40);
+    background: radial-gradient(circle, #405a3d91 15%, #0c120cc2 90%);
+    box-shadow: 0 0 14px #464c4652;
+    border: 2px solid #233027;
+    border-radius: 20px;
+
+    .fa-xmark {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+      font-size: 1.5em;
+      color: $white;
+      opacity: .6;
+    }
+
+    .fa-xmark:hover {
+      cursor: pointer;
+    }
+
+    p {
+      margin-bottom: 3px;
+    }
+
+    input {
+      background-color: #c9d7d02b;
+    }
+
+    button {
+      margin-top: 20px;
+      height: 50px;
+      width: 130px;
+    }
+  }
+
+  .hall.box.create-warrior {
+    overflow-y: scroll;
+  }
+
   .hall.box {
     margin: 20px;
-    padding: 15px;
+    padding: 15px 10px;
     height: 100%;
     width: 500px;
+    position: relative;
 
     background: rgb(45, 74, 40);
     background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
@@ -30,13 +90,14 @@
       max-width: 100%;
       overflow-y: scroll;
 
+
       .list-element {
         margin-bottom: 10px;
         margin-right: 10px;
         padding: 10px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: end;
         background-color: $list-element-bgc;
         box-shadow: 2px 2px 4px #2e312ee6;
         border-radius: 10px;
@@ -62,7 +123,7 @@
       }
 
       .checked {
-        background-color: #6e78696e
+        background-color: #757bad42;
       }
     }
 
@@ -72,11 +133,43 @@
     }
 
     .hall.logs {
-      background-color: saddlebrown;
+      background-color: #02020254;
+      padding: 10px 15px;
       width: 100%;
-      height: 20%;
+      height: 30%;
+
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px #2e312ee6;
+
       overflow-y: scroll;
+
+      p.log {
+        margin-bottom: 3px;
+        color: #797ea5;
+      }
     }
+
+    .create-form {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      label {
+
+      }
+
+      input {
+
+      }
+
+      button {
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+
+    }
+
 
   }
 }

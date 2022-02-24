@@ -9,11 +9,53 @@
     display: flex;
     flex-direction: column;
     justify-content: center; }
+  .hall.main-wrapper .deleting-shadow {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle, #000000 15%, #000000b5 35%);
+    opacity: 0;
+    z-index: 2; }
+  .hall.main-wrapper .deleting-box {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 400px;
+    z-index: 3;
+    background: #2d4a28;
+    background: radial-gradient(circle, #405a3d91 15%, #0c120cc2 90%);
+    box-shadow: 0 0 14px #464c4652;
+    border: 2px solid #233027;
+    border-radius: 20px; }
+    .hall.main-wrapper .deleting-box .fa-xmark {
+      position: absolute;
+      top: 14px;
+      right: 20px;
+      font-size: 1.5em;
+      color: #bfbfbf;
+      opacity: .6; }
+    .hall.main-wrapper .deleting-box .fa-xmark:hover {
+      cursor: pointer; }
+    .hall.main-wrapper .deleting-box p {
+      margin-bottom: 3px; }
+    .hall.main-wrapper .deleting-box input {
+      background-color: #c9d7d02b; }
+    .hall.main-wrapper .deleting-box button {
+      margin-top: 20px;
+      height: 50px;
+      width: 130px; }
+  .hall.main-wrapper .hall.box.create-warrior {
+    overflow-y: scroll; }
   .hall.main-wrapper .hall.box {
     margin: 20px;
-    padding: 15px;
+    padding: 15px 10px;
     height: 100%;
     width: 500px;
+    position: relative;
     background: #2d4a28;
     background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
     box-shadow: 0 0 15px #141414cf;
@@ -28,7 +70,7 @@
         padding: 10px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: end;
         background-color: #53604f1f;
         box-shadow: 2px 2px 4px #2e312ee6;
         border-radius: 10px; }
@@ -43,12 +85,26 @@
           max-height: 50px;
           opacity: .5; }
       .hall.main-wrapper .hall.box .list-box .checked {
-        background-color: #6e78696e; }
+        background-color: #757bad42; }
     .hall.main-wrapper .hall.box .fight-btn {
       margin-top: 15px;
       width: 100%; }
     .hall.main-wrapper .hall.box .hall.logs {
-      background-color: saddlebrown;
+      background-color: #02020254;
+      padding: 10px 15px;
       width: 100%;
-      height: 20%;
+      height: 30%;
+      border-radius: 10px;
+      box-shadow: 2px 2px 4px #2e312ee6;
       overflow-y: scroll; }
+      .hall.main-wrapper .hall.box .hall.logs p.log {
+        margin-bottom: 3px;
+        color: #797ea5; }
+    .hall.main-wrapper .hall.box .create-form {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .hall.main-wrapper .hall.box .create-form button {
+        margin-top: 10px;
+        margin-bottom: 15px; }

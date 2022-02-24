@@ -1,4 +1,4 @@
-export const playSound = (sound: HTMLAudioElement) => {
+export const    playSound = (sound: HTMLAudioElement) => {
     if (sound.preload !== 'auto') {
         sound.preload = 'auto';
         sound.load();

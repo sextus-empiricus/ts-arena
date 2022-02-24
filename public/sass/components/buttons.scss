@@ -1,4 +1,4 @@
-@import '../_variables.scss';
+@import '../base/variables';
 
 button {
   //margin: 10px;
@@ -8,8 +8,24 @@ button {
   font-size: 1.7em;
   text-shadow: 4px 4px 3px $shadow-color;
   box-shadow: 3px 3px 5px #00000090;
-  background-color: $btn-bgc-green;
+  background: radial-gradient(circle, rgba(61, 78, 68, 1) 0%, rgb(129 187 153 / 20%) 100%);
   border-radius: 15px;
   color: white;
   opacity: 0.9;
+}
+
+.audio-btn {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  height: 45px;
+  width: 70px;
+  font-size: 1.3em;
+  background-color: black;
+  opacity: .7;
+  border-radius: 10px;
+  justify-content: center;
+  i {
+    color: $white;
+  }
 }

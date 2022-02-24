@@ -43,10 +43,65 @@ button {
   font-size: 1.7em;
   text-shadow: 4px 4px 3px #141414cf;
   box-shadow: 3px 3px 5px #00000090;
-  background-color: #3d4e44;
+  background: radial-gradient(circle, #3d4e44 0%, rgba(129, 187, 153, 0.2) 100%);
   border-radius: 15px;
   color: white;
   opacity: 0.9; }
+
+.audio-btn {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  height: 45px;
+  width: 70px;
+  font-size: 1.3em;
+  background-color: black;
+  opacity: 0.7;
+  border-radius: 10px;
+  justify-content: center; }
+
+.audio-btn i {
+  color: #bfbfbf; }
+
+input {
+  padding: 3px 12px;
+  width: 100%;
+  font-family: "El Messiri", sans-serif;
+  font-size: 1.8em;
+  color: #bfbfbf;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-image: none;
+  background-color: #6ad7a00d;
+  box-shadow: 2px 2px 4px #2e312ee6;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none; }
+
+input[type=number] {
+  text-align: center; }
+
+input:focus-visible {
+  animation-name: focus;
+  animation-duration: 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite; }
+
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+label {
+  margin-bottom: 8px;
+  font-family: "El Messiri", sans-serif;
+  font-size: 1.2em;
+  color: #bfbfbf; }
+
+@keyframes focus {
+  from {
+    box-shadow: 0 0 5px #274431; }
+  to {
+    box-shadow: 0 0 10px #3c8d58b3; } }
 
 .main-wrapper.approve {
   height: 100%;
@@ -120,24 +175,11 @@ video {
   letter-spacing: 0.5px;
   line-height: 40px; }
 
-.home.main-wrapper .story-wrapper .audio-btn {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  max-height: 40px;
-  border-radius: 50px;
-  justify-content: center;
-  opacity: 0.4; }
-
-.home.main-wrapper .story-wrapper .audio-btn i {
-  opacity: 1;
-  color: #bfbfbf; }
-
 .home.main-wrapper .home.box {
   margin: 15px;
   padding: 15px;
   height: 95%;
-  width: 500px;
+  width: 35vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -194,11 +236,61 @@ video {
   flex-direction: column;
   justify-content: center; }
 
+.hall.main-wrapper .deleting-shadow {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle, #000000 15%, #000000b5 35%);
+  opacity: 0;
+  z-index: 2; }
+
+.hall.main-wrapper .deleting-box {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 400px;
+  z-index: 3;
+  background: #2d4a28;
+  background: radial-gradient(circle, #405a3d91 15%, #0c120cc2 90%);
+  box-shadow: 0 0 14px #464c4652;
+  border: 2px solid #233027;
+  border-radius: 20px; }
+
+.hall.main-wrapper .deleting-box .fa-xmark {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 1.5em;
+  color: #bfbfbf;
+  opacity: 0.6; }
+
+.hall.main-wrapper .deleting-box .fa-xmark:hover {
+  cursor: pointer; }
+
+.hall.main-wrapper .deleting-box p {
+  margin-bottom: 3px; }
+
+.hall.main-wrapper .deleting-box input {
+  background-color: #c9d7d02b; }
+
+.hall.main-wrapper .deleting-box button {
+  margin-top: 20px;
+  height: 50px;
+  width: 130px; }
+
+.hall.main-wrapper .hall.box.create-warrior {
+  overflow-y: scroll; }
+
 .hall.main-wrapper .hall.box {
   margin: 20px;
-  padding: 15px;
+  padding: 15px 10px;
   height: 100%;
   width: 500px;
+  position: relative;
   background: #2d4a28;
   background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
   box-shadow: 0 0 15px #141414cf;
@@ -215,7 +307,7 @@ video {
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   background-color: #53604f1f;
   box-shadow: 2px 2px 4px #2e312ee6;
   border-radius: 10px; }
@@ -235,17 +327,34 @@ video {
   opacity: 0.5; }
 
 .hall.main-wrapper .hall.box .list-box .checked {
-  background-color: #6e78696e; }
+  background-color: #757bad42; }
 
 .hall.main-wrapper .hall.box .fight-btn {
   margin-top: 15px;
   width: 100%; }
 
 .hall.main-wrapper .hall.box .hall.logs {
-  background-color: saddlebrown;
+  background-color: #02020254;
+  padding: 10px 15px;
   width: 100%;
-  height: 20%;
+  height: 30%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #2e312ee6;
   overflow-y: scroll; }
+
+.hall.main-wrapper .hall.box .hall.logs p.log {
+  margin-bottom: 3px;
+  color: #797ea5; }
+
+.hall.main-wrapper .hall.box .create-form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.hall.main-wrapper .hall.box .create-form button {
+  margin-top: 10px;
+  margin-bottom: 15px; }
 
 .arena.main-wrapper {
   padding: 15px;
