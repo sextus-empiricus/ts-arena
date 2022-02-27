@@ -68,9 +68,9 @@ export class Arena {
             // !update round stats:
             const round: FightStats = {
                 attackerName: attacker.name,
-                attackerStrength: attacker.strength,
+                attackerStrength: attacker.strength ?? 0,
                 attackedName: attacked.name,
-                attackedPrevShield: prevShield,
+                attackedPrevShield: prevShield ?? 0,
                 attackedActShield: attacked === this.warrior1 ? warrior1Shield : warrior2Shield,
                 attackedPrevHp: prevHp,
                 attackedActHp: attacked === this.warrior1 ? warrior1Hp : warrior2Hp,

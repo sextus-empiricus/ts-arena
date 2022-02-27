@@ -11,27 +11,28 @@
 
 
   .final-window-shadow {
-    //display: none;
+    display: none;
     position: absolute;
-    display: flex;
+    //display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-    background: radial-gradient(circle, #000000 15%, #000000b5 35%);
-    opacity: 1;
+    background: radial-gradient(circle, #000000 15%, #000000b5 60%);
     z-index: 2;
+    animation: fadein;
+    animation-duration: 8s;
 
     .final-window-box {
-      //display: none;
+      display: none;
       position: relative;
-      display: flex;
+      //display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       height: 50vh;
-      width: 50vw;
+      width: 45vw;
       z-index: 3;
 
       background: rgb(45, 74, 40);
@@ -47,19 +48,23 @@
         align-items: center;
         height: 100%;
         width: 100%;
+        z-index: -1;
 
         .fa-crown {
-          color: #ffe59d96;
-          font-size: 10em;
+          font-size: 38em;
+          background: radial-gradient(circle, #a0a0a066 0%, #1c241b 80%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          filter: drop-shadow(0 0 14px #464c4652);
+          opacity: .5;
           animation: float 4s ease-in-out infinite;
+          z-index: -1;
         }
       }
-
 
       h1 {
         margin: 10px 0 20px 0;
         font-size: 7em;
-        //text-shadow: 0 0 10px #3c8d58b3;
 
         animation: focus-text;
         animation-duration: .5s;
@@ -67,8 +72,12 @@
         animation-iteration-count: infinite;
       }
 
-      p {
-        font-size: 2em;
+      .text-wrapper {
+        text-align: center;
+
+        p {
+          font-size: 2em;
+        }
       }
 
       .fa-xmark {
@@ -85,9 +94,12 @@
         cursor: pointer;
       }
 
+      button {
+        width: 30%;
+      }
     }
-  }
 
+  }
 
   .arena.box {
     background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
@@ -146,7 +158,7 @@
           height: 100%;
 
           background: rgb(138, 30, 30);
-          background: linear-gradient(90deg, rgb(138 30 30 / 22%) 0%, rgb(55 129 55 / 95%) 46%, #50aa503d 100%);
+          background: linear-gradient(90deg, rgba(138, 30, 30, 0.20) 0%, rgba(55, 129, 55, 0.90) 46%, #50aa503d 100%);
           background-attachment: fixed;
           box-shadow: 0 0 1px #ffffff61;
           transition: width 0.5s;
@@ -352,6 +364,15 @@
     text-shadow: 0 0 5px #274431;
   }
   to {
-    text-shadow: 0 0 10px #3c8d58b3;
+    text-shadow: 0 0 10px #e3a21194;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

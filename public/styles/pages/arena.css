@@ -1,10 +1,77 @@
 .arena.main-wrapper {
   padding: 15px;
-  height: 100%;
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  height: 100%;
+  width: 100%; }
+  .arena.main-wrapper .final-window-shadow {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle, #000000 15%, #000000b5 60%);
+    z-index: 2;
+    animation: fadein;
+    animation-duration: 8s; }
+    .arena.main-wrapper .final-window-shadow .final-window-box {
+      display: none;
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 50vh;
+      width: 45vw;
+      z-index: 3;
+      background: #2d4a28;
+      background: radial-gradient(circle, #405a3d91 15%, #0c120cc2 90%);
+      box-shadow: 0 0 14px #464c4652;
+      border: 2px solid #233027;
+      border-radius: 20px; }
+      .arena.main-wrapper .final-window-shadow .final-window-box .crown-wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        z-index: -1; }
+        .arena.main-wrapper .final-window-shadow .final-window-box .crown-wrapper .fa-crown {
+          font-size: 38em;
+          background: radial-gradient(circle, #a0a0a066 0%, #1c241b 80%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          filter: drop-shadow(0 0 14px #464c4652);
+          opacity: .5;
+          animation: float 4s ease-in-out infinite;
+          z-index: -1; }
+      .arena.main-wrapper .final-window-shadow .final-window-box h1 {
+        margin: 10px 0 20px 0;
+        font-size: 7em;
+        animation: focus-text;
+        animation-duration: .5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite; }
+      .arena.main-wrapper .final-window-shadow .final-window-box .text-wrapper {
+        text-align: center; }
+        .arena.main-wrapper .final-window-shadow .final-window-box .text-wrapper p {
+          font-size: 2em; }
+      .arena.main-wrapper .final-window-shadow .final-window-box .fa-xmark {
+        padding: 10px;
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        font-size: 1.5em;
+        color: #bfbfbf;
+        opacity: .6; }
+      .arena.main-wrapper .final-window-shadow .final-window-box .fa-xmark:hover {
+        cursor: pointer; }
+      .arena.main-wrapper .final-window-shadow .final-window-box button {
+        width: 30%; }
   .arena.main-wrapper .arena.box {
     background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
     margin: 20px;
@@ -44,10 +111,11 @@
         .arena.main-wrapper .arena.box.warriors .warriors-info-wrapper .progress-bar .progress-bar-fill {
           height: 100%;
           background: #8a1e1e;
-          background: linear-gradient(90deg, rgba(138, 30, 30, 0.779149) 0%, rgba(55, 129, 55, 0.924807) 46%, #50aa50 100%);
-          box-shadow: 0 0 5px #ffffff61;
+          background: linear-gradient(90deg, rgba(138, 30, 30, 0.2) 0%, rgba(55, 129, 55, 0.9) 46%, #50aa503d 100%);
+          background-attachment: fixed;
+          box-shadow: 0 0 1px #ffffff61;
           transition: width 0.5s;
-          border-radius: 3px; }
+          border-radius: 5px; }
         .arena.main-wrapper .arena.box.warriors .warriors-info-wrapper .progress-bar .progress-bar-value {
           position: absolute;
           height: 100%;
@@ -164,3 +232,23 @@
   100% {
     background-color: #53604f1f;
     transform: translate(0); } }
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0px); }
+  50% {
+    transform: translate(0, 15px); }
+  100% {
+    transform: translate(0, 0px); } }
+
+@keyframes focus-text {
+  from {
+    text-shadow: 0 0 5px #274431; }
+  to {
+    text-shadow: 0 0 10px #e3a21194; } }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }

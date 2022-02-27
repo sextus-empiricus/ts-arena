@@ -3,10 +3,15 @@ import {fightSound} from './utils/fightSound.js';
 import {playSoundtrack} from './utils/playSoundtrack.js';
 import {ProgressBar} from './utils/class_hpBar.js';
 import {getCookie} from './utils/cookies.js';
+import {fadeAudioOut} from './utils/fadeAudioOut.js';
 
 //# warriors box elements:
 const warrior1Box: HTMLElement = document.querySelector('#warrior1');
 const warrior2Box: HTMLElement = document.querySelector('#warrior2');
+
+//# final windows elements:
+const finalShadow: HTMLElement = document.querySelector('.final-window-shadow');
+const finalWindowBox: HTMLElement = document.querySelector('.final-window-box');
 
 //# warriors hp bars:
 const warrior1progressBar: HTMLDivElement = document.querySelector('#progress-bar-warrior-1')
@@ -23,6 +28,7 @@ const w2pg: ProgressBar = new ProgressBar(warrior2progressBar, warrior2MaxHp);
 //  #audio:
 const btnAudio = document.querySelector('#audioBtn') as HTMLButtonElement;
 const arenaTheme: HTMLAudioElement = new Audio('../audio/arena_theme.mp3');
+const finalTheme: HTMLAudioElement = new Audio('../audio/final_theme.mp3');
 
 //  #console elements:
 const statsElements = [...document.querySelectorAll('.log')] as HTMLElement[];
@@ -33,7 +39,7 @@ const winnerElement = document.querySelector('.winner-element') as HTMLElement;
 playSoundtrack(arenaTheme, true, true, 1, btnAudio)
 
 //  #helper variables:
-let elementsId: number = 0;
+let elementId: number = 0;
 let startingFlag: number = 0; // if 0 - box1 starts | if 1 - box2 start;
 let turnFlag: number = 0;
 
@@ -74,13 +80,24 @@ const intervalId = setInterval(async () => {
         }
     }
 
-    statsElements[elementsId].hidden = false;
-    statsElements[elementsId].classList.add();
+    statsElements[elementId].hidden = false;
+    statsElements[elementId].classList.add();
 
-    elementsId += 1;
-    if (elementsId === statsElements.length) {
+    elementId += 1;
+
+    //# action on the end of consoling:
+    if (elementId === statsElements.length) {
         clearInterval(intervalId);
+
         winnerElement.hidden = false;
+
+        playSoundtrack(finalTheme, true, true, 1, btnAudio);
+        fadeAudioOut(arenaTheme);
+
+        setTimeout(() => {
+            // finalShadow.style.display = 'flex';
+            // finalWindowBox.style.display = 'flex';
+        }, 1000)
     }
 
     listBox.scroll({
@@ -92,6 +109,7 @@ const intervalId = setInterval(async () => {
         warrior1Box.classList.remove('attack-down', 'defence-up');
         warrior2Box.classList.remove('attack-up', 'defence-down');
     }, 750)
+
 
 }, 800);
 /////////////////////////////notes//////////////////////////////

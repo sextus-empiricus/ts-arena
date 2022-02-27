@@ -71,13 +71,6 @@ app.get('/arena', async (req: Request, res: Response) => {
     const arena = new Arena(warrior1, warrior2);
     const fightStats = arena.figth();
 
-    //set fightstats into DB:
-    const fightStatsId = uuid();
-    await pool.query(`INSERT INTO ${process.env.DB_TABLES_STATS} VALUES (:id, :stats);`, {
-        id: fightStatsId,
-        stats: JSON.stringify(fightStats)
-    });
-
     const winner = fightStats[fightStats.length - 1].winner as WarriorRecord;
     winner.wins += 1;
     await winner.updateMe();
