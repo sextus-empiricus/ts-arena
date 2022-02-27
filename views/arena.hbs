@@ -1,10 +1,26 @@
 <div class="arena main-wrapper">
 
-    <div class="arena warriors">
+    <div class="final-window-shadow">
+        <div class="final-window-box">
+            <i class="fa-solid fa-xmark" id="close-deleting-box"></i>
+            <div class="crown-wrapper">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <h1>Victory!</h1>
+            <p>Goliath is dead!</p>
+            <p>Sextus won the game and the glory!</p>
+        </div>
+    </div>
+
+
+    <video src="video/darkness_big.mp4" autoplay muted loop></video>
+    <div class="bg-video-shadow"></div>
+
+    <div class="arena box warriors">
         <h1>Battle:</h1>
 
         <div class="warriors-info-wrapper">
-            <div class="warrior-info-box warrior1">
+            <div class="warrior-info-box warrior1" id="warrior1" data-warrior-name="{{warrior1._name}}">
                 <div data-id="{{warrior1._id}}" class="list-element ranking">
                     <p>name: {{warrior1._name}}</p>
                     <p>strength: {{warrior1._strength}}</p>
@@ -13,11 +29,15 @@
                     <p>endurance: {{warrior1._endurance}}</p>
                     <p>wins: {{warrior1._wins}}</p>
                 </div>
+
+                <div class="progress-bar warrior-1" id="progress-bar-warrior-1">
+                    <div class="progress-bar-value">100%</div>
+                    <div class="progress-bar-fill"></div>
+                </div>
+
             </div>
 
-            <div class="icon">⚔</div>
-
-            <div class="warrior-info-box warrior2">
+            <div class="warrior-info-box warrior2" id="warrior2" data-warrior-name="{{warrior2._name}}">
                 <div data-id="{{warrior2._id}}" class="list-element ranking">
                     <p>name: {{warrior2._name}}</p>
                     <p>strength: {{warrior2._strength}}</p>
@@ -26,20 +46,34 @@
                     <p>endurance: {{warrior2._endurance}}</p>
                     <p>wins: {{warrior2._wins}}</p>
                 </div>
+
+                <div class="progress-bar warrior-2" id="progress-bar-warrior-2">
+                    <div class="progress-bar-value">100%</div>
+                    <div class="progress-bar-fill"></div>
+                </div>
+
             </div>
         </div>
+        <button id="audioBtn" class="audio-btn">
+            <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
+        </button>
     </div>
 
-    <div class="arena box">
+    <div class="arena box logs">
         <h1>Logs:</h1>
 
         <div class="list-box">
             {{#each fightStats}}
-                <div class="list-element log" hidden>
-                    <p>Round: {{round @index}}</p>
-                    <p>{{this.attackerName}} is attacking {{this.attackedName}}</p>
-                    <p>Defencer's shield changed from {{this.attackedPrevShield}} to {{this.attackedActShield}}</p>
-                    <p>Defencer's HP changed from: {{this.attackedPrevHp}} to {{this.attackedActHp}}</p>
+                <div class="list-element log {{turnOf @index}}" hidden data-first-attacker="{{../firstAttacker}}">
+                    <p class="round">Round {{roundNumber @index}}</p>
+                    <p>{{this.attackerName}} is attacking for <span
+                            class="color-attack">{{this.attackerStrength}}</span> points</p>
+                    <p>{{this.attackedName}}'s shield changed from
+                        <span class="color-before">{{this.attackedPrevShield}}</span> to
+                        <span class="color-after">{{this.attackedActShield}}</span></p>
+                    <p>{{this.attackedName}}'s HP changed from:
+                        <span class="color-before">{{this.attackedPrevHp}}</span> to
+                        <span class="color-after">{{this.attackedActHp}}</span></p>
                 </div>
             {{/each}}
 

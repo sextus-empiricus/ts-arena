@@ -32,6 +32,7 @@
     border: 2px solid #233027;
     border-radius: 20px; }
     .hall.main-wrapper .deleting-box .fa-xmark {
+      padding: 10px;
       position: absolute;
       top: 14px;
       right: 20px;
@@ -73,7 +74,8 @@
         align-items: end;
         background-color: #53604f1f;
         box-shadow: 2px 2px 4px #2e312ee6;
-        border-radius: 10px; }
+        border-radius: 10px;
+        transition: background-color 0.1s; }
         .hall.main-wrapper .hall.box .list-box .list-element .colored {
           color: #a6b993; }
         .hall.main-wrapper .hall.box .list-box .list-element .colored-name {
@@ -86,6 +88,12 @@
           opacity: .5; }
       .hall.main-wrapper .hall.box .list-box .checked {
         background-color: #757bad42; }
+      .hall.main-wrapper .hall.box .list-box .list-element.warrior-element:hover {
+        background-color: #757bad24;
+        cursor: pointer; }
+      .hall.main-wrapper .hall.box .list-box .list-element.warrior-element.checked:hover {
+        background-color: #757bad42;
+        cursor: pointer; }
     .hall.main-wrapper .hall.box .fight-btn {
       margin-top: 15px;
       width: 100%; }

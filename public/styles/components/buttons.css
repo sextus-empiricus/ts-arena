@@ -5,7 +5,26 @@ button {
   font-size: 1.7em;
   text-shadow: 4px 4px 3px #141414cf;
   box-shadow: 3px 3px 5px #00000090;
-  background-color: #3d4e44;
+  background: radial-gradient(circle, #3d4e44 0%, #81BB9933 100%);
   border-radius: 15px;
   color: white;
-  opacity: 0.9; }
+  opacity: 0.9;
+  transition: background-color .1s; }
+
+.audio-btn {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  height: 45px;
+  width: 70px;
+  font-size: 1.3em;
+  background-color: black;
+  opacity: .7;
+  border-radius: 10px;
+  justify-content: center; }
+  .audio-btn i {
+    color: #bfbfbf; }
+
+button:hover {
+  background-color: #65706a75;
+  cursor: pointer; }

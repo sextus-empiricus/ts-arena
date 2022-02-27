@@ -35,6 +35,7 @@ btnStart.addEventListener('click', () => {
     fadeAudioOut(homeTheme);
     goTo('/hall', 1000);
 })
+
 //  #button audio play:
 btnAudio.addEventListener('click', ()=> {
     btnAudioFun(btnAudio, errorSound, homeTheme)

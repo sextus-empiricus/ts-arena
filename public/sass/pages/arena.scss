@@ -1,22 +1,113 @@
+@import '../base/variables.scss';
+
 .arena.main-wrapper {
   padding: 15px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  .arena.warriors {
-    margin: 15px;
-    padding: 15px;
+
+  .final-window-shadow {
+    //display: none;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(circle, #000000 15%, #000000b5 35%);
+    opacity: 1;
+    z-index: 2;
+
+    .final-window-box {
+      //display: none;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      width: 50vw;
+      z-index: 3;
+
+      background: rgb(45, 74, 40);
+      background: radial-gradient(circle, #405a3d91 15%, #0c120cc2 90%);
+      box-shadow: 0 0 14px #464c4652;
+      border: 2px solid #233027;
+      border-radius: 20px;
+
+      .crown-wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        .fa-crown {
+          color: #ffe59d96;
+          font-size: 10em;
+          animation: float 4s ease-in-out infinite;
+        }
+      }
+
+
+      h1 {
+        margin: 10px 0 20px 0;
+        font-size: 7em;
+        //text-shadow: 0 0 10px #3c8d58b3;
+
+        animation: focus-text;
+        animation-duration: .5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+      }
+
+      p {
+        font-size: 2em;
+      }
+
+      .fa-xmark {
+        padding: 10px;
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        font-size: 1.5em;
+        color: $white;
+        opacity: .6;
+      }
+
+      .fa-xmark:hover {
+        cursor: pointer;
+      }
+
+    }
+  }
+
+
+  .arena.box {
+    background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
+    margin: 20px;
+    padding: 15px 10px;
 
     height: 100%;
-    width: 70vw;
-    background-color: tomato;
+    //width: 50vw;
+
+    border-radius: 20px;
+    box-shadow: 0 0 15px #141414cf;
+  }
+
+  .arena.box.warriors {
+    //width: 70vw;
+    flex-basis: 60%;
 
     .warriors-info-wrapper {
-      height: 90%;
-      width: 90%;
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -26,40 +117,241 @@
         margin: 15px;
         padding: 15px;
 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         width: 90%;
         height: 30%;
-        background-color: #eba6a6;
+
+        background-color: #53604f1f;
+        box-shadow: 2px 2px 4px #2e312ee6;
+        border-radius: 15px;
+        transition: 1s;
+
+        p {
+          font-size: 2em;
+        }
       }
+
+      .progress-bar {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        background-color: #ff000024;
+        //border: 1px solid black;
+        border-radius: 3px;
+
+
+        .progress-bar-fill {
+          height: 100%;
+
+          background: rgb(138, 30, 30);
+          background: linear-gradient(90deg, rgb(138 30 30 / 22%) 0%, rgb(55 129 55 / 95%) 46%, #50aa503d 100%);
+          background-attachment: fixed;
+          box-shadow: 0 0 1px #ffffff61;
+          transition: width 0.5s;
+          border-radius: 5px;
+        }
+
+        .progress-bar-value {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: "El Messiri", sans-serif;
+          font-size: 1.5em;
+          color: $white;
+        }
+      }
+    }
+
+    button {
+      bottom: 35px;
+      left: 60px;
     }
   }
 
-  .arena.box {
-    margin: 15px;
-    padding: 15px;
-    height: 100%;
-    width: 30vw;
-    //display: flex;
-    //flex-direction: column;
-    //justify-content: center;
-    //text-align: center;
-    background-color: tomato;
+  .arena.box.logs {
+    flex-basis: 40%;
 
     .list-box {
       height: 90%;
       max-width: 100%;
-      background-color: saddlebrown;
       overflow-y: scroll;
 
       .list-element {
         margin-bottom: 10px;
+        padding: 8px;
+        margin-right: 10px;
         //height: 10%;
-        background-color: darksalmon;
+        background-color: #53604f1f;
+        box-shadow: 2px 2px 4px #2e312ee6;
+        border-radius: 10px;
+
+        animation-name: appear;
+        animation-duration: 1s;
+        //animation-direction: alternate;
+        //animation-iteration-count: infinite;
+
+
+        p.round {
+          color: $colored-yellow;
+
+        }
+
+        span.color-attack {
+          color: #efbd71;
+        }
+
+        span.color-before {
+          color: #5f745f;
+        }
+
+        span.color-after {
+          color: #745f5f;
+
+        }
+      }
+
+      .warrior-1 {
+      }
+
+      .warrior-2 {
+        background-color: #75ada417;
+      }
+
+      .winner-element {
+        background-color: #75ada417;
       }
 
       .checked {
         background-color: lightcoral;
       }
     }
+  }
+}
 
+//  #animations:
+.attack-up {
+  animation: attack-up;
+  animation-duration: .3s;
+  animation-direction: alternate;
+}
+
+.attack-down {
+  animation: attack-down;
+  animation-duration: .3s;
+  animation-direction: alternate;
+}
+
+.defence-up {
+  animation: defence-up;
+  animation-duration: 1s;
+}
+
+.defence-down {
+  animation: defence-down;
+  animation-duration: 1s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes attack-up {
+  0% {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  20% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+    background-color: #53604f1f;
+  }
+}
+
+@keyframes attack-down {
+  0% {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  20% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+    background-color: #53604f1f;
+  }
+}
+
+@keyframes defence-up {
+  0% {
+    background-color: rgba(170, 70, 70, 0);
+    transform: translate(0);
+  }
+  10% {
+    background-color: rgba(72, 18, 18, .1);
+    transform: translate(0, -3px);
+  }
+  20% {
+    background-color: rgba(72, 18, 18, 0.3);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1);
+    transform: translate(0, 1px);
+  }
+  100% {
+    background-color: #53604f1f;
+    transform: translate(0);
+  }
+}
+
+@keyframes defence-down {
+  0% {
+    background-color: rgba(170, 70, 70, 0);
+    transform: translate(0);
+  }
+  10% {
+    background-color: rgba(72, 18, 18, .1);
+    transform: translate(0, 3px);
+  }
+  20% {
+    background-color: rgba(72, 18, 18, 0.3);
+    transform: translate(0, -1px);
+    //0 0 100px rgb(255 0 0 / 34%)
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1);
+    //box-shadow: 0 0 20px rgb(151, 41, 41);
+  }
+  100% {
+    background-color: #53604f1f;
+    transform: translate(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+@keyframes focus-text {
+  from {
+    text-shadow: 0 0 5px #274431;
+  }
+  to {
+    text-shadow: 0 0 10px #3c8d58b3;
   }
 }

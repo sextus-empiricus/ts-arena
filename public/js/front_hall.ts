@@ -1,9 +1,10 @@
 //  #imports:
-import {createCreatingWarriorLog} from './create_elements.js';
+import {createCreatingWarriorLog} from './utils/create_elements.js';
 import {goTo} from './utils/goTo.js';
 import {playSound} from './utils/playSound.js';
 import {playSoundtrack} from './utils/playSoundtrack.js';
 import {btnAudioFun} from './utils/btnAudio.js';
+import {fadeAudioOut} from './utils/fadeAudioOut.js';
 
 //  #elements:
 const createForm: HTMLElement = document.getElementById('create-form');
@@ -38,7 +39,7 @@ const killSound: HTMLAudioElement = new Audio('../audio/clicks/kill.mp3');
 const closeSound: HTMLAudioElement = new Audio('../audio/clicks/close.wav');
 const prevKillSound: HTMLAudioElement = new Audio('../audio/clicks/prev_kill.wav');
 
-//  #on load page:
+//  #on page-load:
 inName.focus();
 playSoundtrack(hallTheme, true,true,1, btnAudio)
 
@@ -103,6 +104,7 @@ createForm.addEventListener('submit', async e => {
         });
         playSound(clickSound);
         createCreatingWarriorLog('Success! Page refresing.');
+        fadeAudioOut(hallTheme);
         goTo('/hall', 1500);
 
     } catch (err) {
@@ -192,6 +194,7 @@ fightBtn.addEventListener('click', async () => {
     })
 
     document.cookie = `warriorsArena=${JSON.stringify(warriorsArena)}`
+    fadeAudioOut(hallTheme);
     goTo('/arena', 1000);
 })
 

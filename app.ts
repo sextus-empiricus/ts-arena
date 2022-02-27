@@ -3,6 +3,7 @@ import * as express from 'express';
 import 'dotenv/config';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
+import {v4 as uuid} from 'uuid';
 import {engine as hbs} from 'express-handlebars';
 import {Router} from './routers/router_warriorsApi';
 import {Request, Response} from 'express';
@@ -11,6 +12,7 @@ import {globalErrorHandler} from './utils/globalErrorHandler';
 import {WarriorRecord} from './db/records/record_Warrior';
 import {Arena} from './classes/class_Arena';
 import {hbsHelpers} from './utils/hbsHelpers';
+import {pool} from './db/db';
 
 // app:
 export const app = express();
@@ -49,19 +51,43 @@ app.get('/hall', async (req: Request, res: Response) => {
     res.render('hall.hbs', {records, ranking});
 });
 
+
+// routery robocze - TODO
+app.get('/api/v1/fight-stats/:id', async (req: Request, res: Response)=> {
+    console.log(req.params.id)
+    const [result] = (await pool.query(`SELECT * FROM ${process.env.DB_TABLES_STATS} WHERE id = :id`, {
+        id: req.params.id
+    }))[0];
+    res.status(200).json({
+        status: 'success',
+        data: result
+    })
+})
+
 app.get('/arena', async (req: Request, res: Response) => {
     const ids = JSON.parse(req.cookies.warriorsArena);
     const warrior1 = await WarriorRecord.getOneById(ids[0]);
     const warrior2 = await WarriorRecord.getOneById(ids[1]);
     const arena = new Arena(warrior1, warrior2);
     const fightStats = arena.figth();
-    console.log(fightStats);
+
+    //set fightstats into DB:
+    const fightStatsId = uuid();
+    await pool.query(`INSERT INTO ${process.env.DB_TABLES_STATS} VALUES (:id, :stats);`, {
+        id: fightStatsId,
+        stats: JSON.stringify(fightStats)
+    });
+
     const winner = fightStats[fightStats.length - 1].winner as WarriorRecord;
     winner.wins += 1;
     await winner.updateMe();
     const looser = winner === warrior1 ? warrior2 : warrior1;
-
-    res.render('arena.hbs', {warrior1, warrior2, fightStats, winner, looser});
+    const firstAttacker = fightStats[0].attackerName;
+    res.cookie('warrior1-hp', warrior1.endurance*10 + warrior1.defence)
+    res.cookie('warrior1-strength', warrior1.strength)
+    res.cookie('warrior2-hp', warrior2.endurance*10 + warrior2.defence);
+    res.cookie('warrior2-strength', warrior2.strength);
+    res.render('arena.hbs', {warrior1, warrior2, fightStats, winner, looser, firstAttacker});
 });
 
 app.post('/test', (req: Request, res: Response) => {

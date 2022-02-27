@@ -1,0 +1,22 @@
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -5;
+}
+
+.bg-video-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -3;
+  background: black;
+  background: linear-gradient(90deg, black 0%, #464646 100%);
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=video.css.map */

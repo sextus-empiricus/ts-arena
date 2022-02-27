@@ -1,11 +1,13 @@
-@import 'base/reset';
-@import 'base/webkit';
-@import 'base/typography';
+@import './base/reset.scss';
+@import 'base/scrollbar.scss';
+@import './base/typography.scss';
 
-@import 'components/buttons';
-@import 'components/inputs';
+@import './components/video.scss';
+@import './components/buttons.scss';
+@import './components/inputs.scss';
 
-@import 'pages/approve';
-@import 'pages/home';
-@import 'pages/hall';
-@import 'pages/arena';
+@import './pages/approve.scss';
+@import './pages/home.scss';
+@import './pages/hall.scss';
+@import './pages/arena.scss';
+
