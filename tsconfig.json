@@ -16,7 +16,7 @@
   "compilerOptions": {
     "target": "es2018",
     "module": "commonjs",
-    "lib": ["es2018", "esnext.asynciterable"],
+    "lib": ["es2018", "esnext.asynciterable", "es6", "dom.iterable", "dom"],
     "skipLibCheck": true,
     "strict": true,
     "strictFunctionTypes": false,
