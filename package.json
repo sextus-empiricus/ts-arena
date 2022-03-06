@@ -2,13 +2,12 @@
   "name": "ts_w4_d5_arena",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc",
-    "postinstall": "npm run build && mv -i -v public dist/ && rm -v -rf src",
+    "start": "node dist/index.js",
+    "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
     "deploy": "git add . && git commit -m Heroku && git push heroku master",
-    "start:dev": "nodemon server.ts -e ts,js,scss,hbs",
+    "start:dev": "nodemon index.ts -e ts,js,scss,hbs",
     "sass:dev": "node-sass  -rw public/sass/ -o public/styles",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
