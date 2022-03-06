@@ -12,7 +12,6 @@ export class ArenaV2 {
     }
 
     public figth() {
-
         let warrior1Hp: number = (this.warrior1.endurance + this.warrior1.defence) * 10 + 1;
         let warrior2Hp: number = (this.warrior2.endurance + this.warrior2.defence) * 10 + 1;
 
@@ -23,7 +22,6 @@ export class ArenaV2 {
         let stats: FightStats[] = [];
 
         const round = () => {
-
             const attacker: Warrior = this.activeWarrior === 1 ? this.warrior1 : this.warrior2;
             const attacked: Warrior = this.activeWarrior === 1 ? this.warrior2 : this.warrior1;
             const luck = () => {

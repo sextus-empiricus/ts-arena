@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
     "start:dev": "nodemon server.ts -e ts,js,scss,hbs",
     "sass:dev": "node-sass  -rw public/sass/ -o public/styles",
     "app-t": "ts-node dev/my_tests/app_tests.ts",

@@ -1,17 +1,42 @@
-.main-wrapper.approve {
+.main-wrapper.error {
+  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #5a5a5a; }
-  .main-wrapper.approve .audio-aprove-box {
-    width: 200px;
-    padding: 15px;
+  .main-wrapper.error .battlefield-img {
+    position: absolute;
+    background-image: url("../../img/battlefield.svg");
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .2;
+    z-index: 1; }
+  .main-wrapper.error .error-box {
+    width: 300px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2d4a28; }
-  .main-wrapper.approve button {
-    margin: 10px; }
+    background: radial-gradient(circle, #1c3c19 20%, #1e2e1400 90%);
+    border-radius: 10px;
+    z-index: 2; }
+  .main-wrapper.error h1 {
+    margin: 0; }
+  .main-wrapper.error p {
+    margin: 15px 0; }
+  .main-wrapper.error button {
+    margin-bottom: 25px; }
+  .main-wrapper.error a {
+    font-family: "El Messiri", sans-serif;
+    color: #bfbfbf;
+    text-decoration: none; }
+  .main-wrapper.error .justify {
+    text-align: justify; }
+  .main-wrapper.error .no-warriors {
+    padding: 35px; }

@@ -1,8 +1,6 @@
 export const playSound = (sound: HTMLAudioElement) => {
-    // if (sound.preload !== 'auto') {
-    //     sound.preload = 'auto';
-        sound.load();
-    // }
+    sound.load();
     const soundClone = sound.cloneNode() as HTMLAudioElement;
+    soundClone.volume = .7;
     soundClone.play().then();
 }

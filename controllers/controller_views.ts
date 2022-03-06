@@ -1,6 +1,7 @@
 import {Request, Response} from 'express';
 import {WarriorRecord} from '../db/records/record_Warrior';
 import {ArenaV2} from '../classes/class_Arena_v2';
+import {catchAsync} from '../utils/catchAsync';
 
 export class viewsController {
     constructor() {
@@ -14,13 +15,13 @@ export class viewsController {
         res.render('home.hbs');
     }
 
-    public static hall = async (req: Request, res: Response) => {
+    public static hall = catchAsync(async (req: Request, res: Response) => {
         const ranking = await WarriorRecord.getRanking();
         const records = await WarriorRecord.getAll();
         res.render('hall.hbs', {records, ranking});
-    }
+    })
 
-    public static arena = async (req: Request, res: Response) => {
+    public static arena = catchAsync(async (req: Request, res: Response) => {
         const ids = JSON.parse(req.cookies.warriorsArena);
         const warrior1 = await WarriorRecord.getOneById(ids[0]);
         const warrior2 = await WarriorRecord.getOneById(ids[1]);
@@ -51,7 +52,7 @@ export class viewsController {
         res.cookie('warrior2-hp', (warrior2.endurance + warrior2.defence) * 10 + 1);
 
         res.render('arena.hbs', {warrior1, warrior2, fightStats, winner, looser, firstAttacker});
-    }
+    })
 
     public static notFound = (req: Request, res: Response) => {
         res.render('not-found');

@@ -53,5 +53,5 @@ aboutBtn.addEventListener('click', () => {
         storyBox.style.display = 'none';
         aboutBox.style.display = 'block';
         aboutBox.classList.add('home-fade-in');
-    }, 1000)
+    }, 700)
 })

@@ -1,12 +1,12 @@
 //  #imports:
-import {fightSound} from './utils/fightSound.js';
 import {playSoundtrack} from './utils/playSoundtrack.js';
 import {ProgressBar} from './utils/class_hpBar.js';
-import {getCookie} from './utils/cookies.js';
+import {deleteCookies, getCookie} from './utils/cookies.js';
 import {fadeAudioOut} from './utils/fadeAudioOut.js';
 import {goTo} from './utils/goTo.js';
 import {playSound} from './utils/playSound.js';
 import {btnAudioFun} from './utils/btnAudio.js';
+import {fightSound} from './utils/fightSound.js';
 
 //  #warriors box elements:
 const warrior1Box: HTMLElement = document.querySelector('#warrior1');
@@ -26,9 +26,6 @@ const warrior2progressBar: HTMLDivElement = document.querySelector('#progress-ba
 
 const warrior1MaxHp: number = Number(getCookie('warrior1-hp'));
 const warrior2MaxHp: number = Number(getCookie('warrior2-hp'));
-
-// const warrior1Strength: number = Number(getCookie('warrior1-strength'));
-// const warrior2Strength: number = Number(getCookie('warrior2-strength'));
 
 const warrior1Hits: number[] = JSON.parse(decodeURIComponent(getCookie('warrior1-hits'))); // - first attacker;
 const warrior2Hits: number[] = JSON.parse(decodeURIComponent(getCookie('warrior2-hits')));
@@ -59,7 +56,6 @@ const backToHall = () => {
     fadeAudioOut(finalTheme);
     goTo('/hall', 1000);
 }
-
 
 //  #on page-load:
 playSoundtrack(arenaTheme, true, true, 1, btnAudio)
@@ -130,6 +126,7 @@ const intervalId = setInterval(async () => {
 
         fadeAudioOut(arenaTheme);
         playSoundtrack(finalTheme, true, true, 1, btnAudio);
+        deleteCookies(['warrior1-hits', 'warrior2-hits', 'warrior1-hp', 'warrior2-hp', 'warriorsArena']);
 
         setTimeout(() => {
             finalShadow.style.display = 'flex';
@@ -173,6 +170,5 @@ backToHallBtn.addEventListener('click', () => {
 btnAudio.addEventListener('click', () => {
     btnAudioFun(btnAudio, closeSound, arenaTheme);
 })
-/////////////////////////////notes//////////////////////////////
 
 
