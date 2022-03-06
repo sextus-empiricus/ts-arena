@@ -86,10 +86,9 @@
     border-radius: 20px;
 
     .list-box {
-      height: 85%;
+      height: 100%; // changed from 85
       max-width: 100%;
       overflow-y: scroll;
-
 
       .list-element {
         margin-bottom: 10px;
@@ -102,18 +101,6 @@
         box-shadow: 2px 2px 4px #2e312ee6;
         border-radius: 10px;
         transition: background-color 0.1s;
-
-        .colored {
-          color: $colored-green
-        }
-
-        .colored-name {
-          color: $colored-yellow;
-        }
-
-        .colored-wins {
-          color: $colored-purple;
-        }
 
         button {
           min-width: 100px;
@@ -180,6 +167,14 @@
         margin-bottom: 15px;
       }
 
+    }
+  }
+  .hall.box.ranking {
+    display: flex;
+    flex-direction: column;
+    .audio-btn {
+      margin: 10px 0;
+      position: static;
     }
   }
 }

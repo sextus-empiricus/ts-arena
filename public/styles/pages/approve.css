@@ -4,18 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5a5a5a;
-
-  .audio-aprove-box {
+  background-color: #5a5a5a; }
+  .main-wrapper.approve .audio-aprove-box {
     width: 200px;
     padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #2d4a28;
-  }
-  button{
-    margin: 10px;
-  }
-}
+    background-color: #2d4a28; }
+  .main-wrapper.approve button {
+    margin: 10px; }

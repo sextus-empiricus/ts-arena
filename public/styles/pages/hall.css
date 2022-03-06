@@ -62,7 +62,7 @@
     box-shadow: 0 0 15px #141414cf;
     border-radius: 20px; }
     .hall.main-wrapper .hall.box .list-box {
-      height: 85%;
+      height: 100%;
       max-width: 100%;
       overflow-y: scroll; }
       .hall.main-wrapper .hall.box .list-box .list-element {
@@ -76,12 +76,6 @@
         box-shadow: 2px 2px 4px #2e312ee6;
         border-radius: 10px;
         transition: background-color 0.1s; }
-        .hall.main-wrapper .hall.box .list-box .list-element .colored {
-          color: #a6b993; }
-        .hall.main-wrapper .hall.box .list-box .list-element .colored-name {
-          color: #b9b093; }
-        .hall.main-wrapper .hall.box .list-box .list-element .colored-wins {
-          color: #b793b9; }
         .hall.main-wrapper .hall.box .list-box .list-element button {
           min-width: 100px;
           max-height: 50px;
@@ -116,3 +110,9 @@
       .hall.main-wrapper .hall.box .create-form button {
         margin-top: 10px;
         margin-bottom: 15px; }
+  .hall.main-wrapper .hall.box.ranking {
+    display: flex;
+    flex-direction: column; }
+    .hall.main-wrapper .hall.box.ranking .audio-btn {
+      margin: 10px 0;
+      position: static; }

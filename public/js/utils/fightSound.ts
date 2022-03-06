@@ -18,7 +18,6 @@ const voicesArr: HTMLAudioElement[] = [voice1, voice2, voice3, voice4, voice5];
 export const fightSound = () => {
     const idHit: number = Math.floor(Math.random() * (5))
     const idVoice: number = Math.floor(Math.random() * (5))
-
     playSound(hitsArr[idHit])
     setTimeout(()=> {
         playSound(voicesArr[idVoice])

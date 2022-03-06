@@ -1,0 +1,13 @@
+@import '../base/variables.scss';
+
+span.colored {
+  color: $colored-green
+}
+
+span.colored-name {
+  color: $colored-yellow;
+}
+
+span.colored-wins {
+  color: $colored-purple;
+}

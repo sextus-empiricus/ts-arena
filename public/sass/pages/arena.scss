@@ -12,14 +12,17 @@
 
   .final-window-shadow {
     display: none;
+    //display: flex;  // - after fade-id;
     position: absolute;
-    //display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
-    background: radial-gradient(circle, #000000 15%, #000000b5 60%);
+    top: 0;
+    left: 0;
+    //background: radial-gradient(circle, #000000 15%, #000000b5 60%);
+    background: radial-gradient(circle, #ffffff 0, #d0a952b5 92%); //- opcja jasnego tła na finiszu. wymaga nowych styli dla boxa;
     z-index: 2;
     animation: fadein;
     animation-duration: 8s;
@@ -27,19 +30,25 @@
     .final-window-box {
       display: none;
       position: relative;
-      //display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      height: 50vh;
-      width: 45vw;
+      height: 420px;
+      width: 530px;
       z-index: 3;
+      overflow: hidden;
 
       background: rgb(45, 74, 40);
-      background: radial-gradient(circle, #405a3d91 15%, #0c120cc2 90%);
-      box-shadow: 0 0 14px #464c4652;
-      border: 2px solid #233027;
+      background: radial-gradient(circle, #285624d4 20%, #000000 150%);
       border-radius: 20px;
+
+      .bg-img {
+        position: absolute;
+        height: 90%;
+        right: 0;
+        filter: invert(1) opacity(0.1);
+        z-index: -1;
+      }
 
       .crown-wrapper {
         position: absolute;
@@ -49,9 +58,10 @@
         height: 100%;
         width: 100%;
         z-index: -1;
+        box-shadow: 0 0 50px white;
 
         .fa-crown {
-          font-size: 38em;
+          font-size: 20em;
           background: radial-gradient(circle, #a0a0a066 0%, #1c241b 80%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -93,12 +103,13 @@
       .fa-xmark:hover {
         cursor: pointer;
       }
-
-      button {
-        width: 30%;
-      }
     }
 
+    button {
+      background: radial-gradient(circle, #285624d4 20%, #000000 150%);
+      margin-top: 20px;
+      width: 300px;
+    }
   }
 
   .arena.box {
@@ -114,7 +125,6 @@
   }
 
   .arena.box.warriors {
-    //width: 70vw;
     flex-basis: 60%;
 
     .warriors-info-wrapper {
@@ -123,9 +133,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+
+      h1 {
+        align-self: flex-start;
+      }
+
+      .back-to-hall-btn2 {
+        display: block;
+        visibility: hidden;
+        width: 100%;
+        opacity: .5;
+      }
 
       .warrior-info-box {
+        position: relative;
         margin: 15px;
         padding: 15px;
 
@@ -142,6 +164,14 @@
 
         p {
           font-size: 2em;
+        }
+
+        .bg-img {
+          position: absolute;
+          height: 90%;
+          right: 10%;
+          filter: invert(1) opacity(0.3);
+          z-index: -1;
         }
       }
 
@@ -245,7 +275,18 @@
   }
 }
 
-//  #animations:
+//  ##################animations##################
+.box-attack {
+  animation: box-attack;
+  animation-duration: .3s;
+  animation-direction: alternate;
+}
+
+.box-defence {
+  animation: box-defence;
+  animation-duration: 1s;
+}
+
 .attack-up {
   animation: attack-up;
   animation-duration: .3s;
@@ -258,15 +299,11 @@
   animation-direction: alternate;
 }
 
-.defence-up {
-  animation: defence-up;
+.defence-scale {
+  animation: defence-scale;
   animation-duration: 1s;
 }
 
-.defence-down {
-  animation: defence-down;
-  animation-duration: 1s;
-}
 
 @keyframes appear {
   from {
@@ -277,73 +314,64 @@
   }
 }
 
+@keyframes box-attack {
+  0% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    background-color: #53604f1f;
+  }
+}
+
+@keyframes box-defence {
+  0% {
+    background-color: rgba(170, 70, 70, 0);
+  }
+  10% {
+    background-color: rgba(72, 18, 18, .1);
+  }
+  20% {
+    background-color: rgba(72, 18, 18, 0.3);
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    background-color: #53604f1f;
+  }
+}
+
 @keyframes attack-up {
   0% {
     transform: translateY(0);
-    background-color: rgba(255, 255, 255, 0.15);
   }
-  20% {
-    transform: translateY(-15px);
+  30% {
+    transform: translateY(-30px);
   }
   100% {
     transform: translateY(0px);
-    background-color: #53604f1f;
   }
 }
 
 @keyframes attack-down {
   0% {
     transform: translateY(0);
-    background-color: rgba(255, 255, 255, 0.15);
   }
-  20% {
-    transform: translateY(15px);
+  30% {
+    transform: translateY(30px);
   }
   100% {
     transform: translateY(0px);
-    background-color: #53604f1f;
   }
 }
 
-@keyframes defence-up {
+@keyframes defence-scale {
   0% {
-    background-color: rgba(170, 70, 70, 0);
-    transform: translate(0);
+    transform: scale(1);
   }
-  10% {
-    background-color: rgba(72, 18, 18, .1);
-    transform: translate(0, -3px);
+  15% {
+    transform: scale(0.95);
   }
-  20% {
-    background-color: rgba(72, 18, 18, 0.3);
-    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1);
-    transform: translate(0, 1px);
-  }
-  100% {
-    background-color: #53604f1f;
-    transform: translate(0);
-  }
-}
-
-@keyframes defence-down {
-  0% {
-    background-color: rgba(170, 70, 70, 0);
-    transform: translate(0);
-  }
-  10% {
-    background-color: rgba(72, 18, 18, .1);
-    transform: translate(0, 3px);
-  }
-  20% {
-    background-color: rgba(72, 18, 18, 0.3);
-    transform: translate(0, -1px);
-    //0 0 100px rgb(255 0 0 / 34%)
-    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1);
-    //box-shadow: 0 0 20px rgb(151, 41, 41);
-  }
-  100% {
-    background-color: #53604f1f;
-    transform: translate(0);
+  80% {
+    transform: scale(1);
   }
 }
 
@@ -374,5 +402,19 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+//  ##################media##################
+@media (max-width: 1280px), (max-height: 850px) {
+  .list-element.ranking {
+    overflow-y: scroll;
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+  .progress-bar {
+    margin-top: 10px;
   }
 }

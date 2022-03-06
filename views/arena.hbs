@@ -3,8 +3,8 @@
     <div class="final-window-shadow">
 
         <div class="final-window-box">
-
-            <i class="fa-solid fa-xmark" id="close-deleting-box"></i>
+            <img src="./img/standingknight.svg" class="bg-img"/>
+            <i class="fa-solid fa-xmark" id="close-final-box"></i>
 
             <div class="crown-wrapper">
                 <i class="fa-solid fa-crown"></i>
@@ -15,10 +15,8 @@
                 <p>{{winner._name}} is dead!</p>
                 <p>{{looser._name}} won the game and the glory!</p>
             </div>
-
-            <button class="go-to-hall-btn">back</button>
-
         </div>
+        <button class="go-to-hall-btn" id="go-to-hall-btn">back</button>
 
     </div>
 
@@ -27,42 +25,43 @@
     <div class="bg-video-shadow"></div>
 
     <div class="arena box warriors">
-        <h1>Battle:</h1>
 
         <div class="warriors-info-wrapper">
+            <h1>Battle:</h1>
             <div class="warrior-info-box warrior1" id="warrior1" data-warrior-name="{{warrior1._name}}">
+                <img src="./img/knight1.svg" class="bg-img" id="bg-img-warrior1"/>
                 <div data-id="{{warrior1._id}}" class="list-element ranking">
-                    <p>name: {{warrior1._name}}</p>
-                    <p>strength: {{warrior1._strength}}</p>
-                    <p>agility: {{warrior1._agility}}</p>
-                    <p>defence: {{warrior1._defence}}</p>
-                    <p>endurance: {{warrior1._endurance}}</p>
-                    <p>wins: {{warrior1._wins}}</p>
+                    <p>name: <span class="colored-name">{{warrior1._name}}</span></p>
+                    <p>strength: <span class="colored">{{warrior1._strength}}</span></p>
+                    <p>agility: <span class="colored">{{warrior1._agility}}</span></p>
+                    <p>defence: <span class="colored">{{warrior1._defence}}</span></p>
+                    <p>endurance: <span class="colored">{{warrior1._endurance}}</span></p>
+                    <p>wins: <span class="colored-wins">{{warrior1._wins}}</span></p>
                 </div>
 
                 <div class="progress-bar warrior-1" id="progress-bar-warrior-1">
                     <div class="progress-bar-value">100%</div>
                     <div class="progress-bar-fill"></div>
                 </div>
-
             </div>
 
             <div class="warrior-info-box warrior2" id="warrior2" data-warrior-name="{{warrior2._name}}">
+                <img src="./img/knight2.svg" class="bg-img" id="bg-img-warrior2"/>
                 <div data-id="{{warrior2._id}}" class="list-element ranking">
-                    <p>name: {{warrior2._name}}</p>
-                    <p>strength: {{warrior2._strength}}</p>
-                    <p>agility: {{warrior2._agility}}</p>
-                    <p>defence: {{warrior2._defence}}</p>
-                    <p>endurance: {{warrior2._endurance}}</p>
-                    <p>wins: {{warrior2._wins}}</p>
+                    <p>name: <span class="colored-name">{{warrior2._name}}</span></p>
+                    <p>strength: <span class="colored">{{warrior2._strength}}</span></p>
+                    <p>agility: <span class="colored">{{warrior2._agility}}</span></p>
+                    <p>defence: <span class="colored">{{warrior2._defence}}</span></p>
+                    <p>endurance: <span class="colored">{{warrior2._endurance}}</span></p>
+                    <p>wins: <span class="colored-wins">{{warrior2._wins}}</span></p>
                 </div>
 
                 <div class="progress-bar warrior-2" id="progress-bar-warrior-2">
                     <div class="progress-bar-value">100%</div>
                     <div class="progress-bar-fill"></div>
                 </div>
-
             </div>
+            <button class="back-to-hall-btn2" id="back-to-hall-btn2">back</button>
         </div>
         <button id="audioBtn" class="audio-btn">
             <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
@@ -77,10 +76,7 @@
                 <div class="list-element log {{turnOf @index}}" hidden data-first-attacker="{{../firstAttacker}}">
                     <p class="round">Round {{roundNumber @index}}</p>
                     <p>{{this.attackerName}} is attacking for <span
-                            class="color-attack">{{this.attackerStrength}}</span> points</p>
-                    <p>{{this.attackedName}}'s shield changed from
-                        <span class="color-before">{{this.attackedPrevShield}}</span> to
-                        <span class="color-after">{{this.attackedActShield}}</span></p>
+                            class="color-attack">{{this.attackerHit}}</span> points</p>
                     <p>{{this.attackedName}}'s HP changed from:
                         <span class="color-before">{{this.attackedPrevHp}}</span> to
                         <span class="color-after">{{this.attackedActHp}}</span></p>

@@ -53,25 +53,40 @@
     background: radial-gradient(circle, #474e4652 17%, #212820c2 55%);
     box-shadow: 0 0 15px $shadow-color;
     border-radius: 20px 0 0 20px;
+
     h1 {
       font-size: 4.3em;
       color: $white;
     }
+
+    .about-btn {
+
+    }
+
+    .about-btn:hover {
+      cursor: pointer;
+    }
+
     .btn-start {
       margin-bottom: 7px;
       opacity: 0.85;
     }
   }
-
-//AUDIO BUTTON
-
 }
 
-
 //  #animations:
-
 .jello-horizontal {
   animation: jello-horizontal 0.9s both;
+}
+
+.home-fade-in {
+  animation: fadeIn;
+  animation-duration: 1.5s;
+}
+
+.home-fade-out {
+  animation: fadeOut;
+  animation-duration: 1s;
 }
 
 @keyframes jello-horizontal {
@@ -102,5 +117,23 @@
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
