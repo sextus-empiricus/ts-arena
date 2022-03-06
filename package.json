@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
     "deploy": "git add . && git commit -m Heroku && git push heroku master",
-    "start:dev": "nodemon index.ts -e ts,js,scss,hbs",
+    "start:dev": "nodemon server.ts -e ts,js,scss,hbs",
     "sass:dev": "node-sass  -rw public/sass/ -o public/styles",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
