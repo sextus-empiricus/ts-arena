@@ -41,6 +41,5 @@
   },
   "engines": {
     "node": "16.4.2"
-  },
-  "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src"
+  }
 }
