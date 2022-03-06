@@ -9,6 +9,9 @@
     "lib": ["es6", "dom.iterable", "dom"],
     "outDir": "dist",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "compilerOptions": {
+      "outDir": "dist"
+    }
   }
 }
