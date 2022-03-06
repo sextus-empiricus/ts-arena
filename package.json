@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/server.js",
-    "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
+    "build": "tsc",
+    "postinstall": "npm run build && mv -i -v public dist/ && rm -v -rf src",
     "deploy": "git add . && git commit -m Heroku && git push heroku master",
     "start:dev": "nodemon server.ts -e ts,js,scss,hbs",
     "sass:dev": "node-sass  -rw public/sass/ -o public/styles",
