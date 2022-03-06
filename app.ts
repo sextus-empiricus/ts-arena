@@ -15,7 +15,7 @@ export const app = express();
 
 // #config:
 app.use(express.static(join(__dirname + '/public')));
-app.use(express.static(join(__dirname + '/dist/public/js'))) //compiled-ts:
+app.use(express.static(join(__dirname + '/dist/public/js'))) //compiled ts for front:
 
 app.engine('.hbs', hbs({extname: '.hbs', helpers: hbsHelpers}));
 app.set('view engine', '.hbs');

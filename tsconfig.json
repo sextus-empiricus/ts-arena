@@ -1,28 +1,14 @@
-//{
-//  "compilerOptions": {
-//    "noImplicitAny": true,
-//    "preserveConstEnums": true,
-//    "sourceMap": true,
-//    "target": "ES6",
-//    "moduleResolution": "node",
-//    "downlevelIteration": true,
-//    "lib": ["es6", "dom.iterable", "dom"],
-//    "outDir": "dist",
-//    "experimentalDecorators": true,
-//    "emitDecoratorMetadata": true,
-//  }
-//}
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "commonjs",
-    "lib": ["es2018", "esnext.asynciterable", "es6", "dom.iterable", "dom"],
-    "skipLibCheck": true,
-    "strict": true,
-    "strictFunctionTypes": false,
-    "strictPropertyInitialization": false,
-    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "target": "ES2018",
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "lib": ["es6", "dom.iterable", "dom"],
+    "outDir": "dist",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
   }
 }

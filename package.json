@@ -4,10 +4,12 @@
   "description": "",
   "main": "./dist/server.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "node dist/server.js",
     "build": "tsc",
-    "postinstall": "mv -i -v public dist/ && rm -v -rf src",
+    "postinstall": "npm run build && mv -i -v public dist/ && rm -v -rf src",
     "deploy": "git add . && git commit -m Heroku && git push heroku master",
+    "start:dev": "nodemon server.ts -e ts,js,scss,hbs",
+    "sass:dev": "node-sass -rw public/sass/ -o public/styles",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
