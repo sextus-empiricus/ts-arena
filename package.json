@@ -23,7 +23,7 @@
     "dateformat": "^5.0.2",
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15",
-    "ts-node": "^10.5.0"
+    "ts-node": "^10.7.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

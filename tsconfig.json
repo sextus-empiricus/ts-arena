@@ -1,36 +1,14 @@
-//{
-//  "compilerOptions": {
-//    "noImplicitAny": true,
-//    "preserveConstEnums": true,
-//    "sourceMap": true,
-//    "target": "ES6",
-//    "moduleResolution": "node",
-//    "downlevelIteration": true,
-//    "lib": ["es6", "dom.iterable", "dom"],
-//    "outDir": "dist",
-//    "experimentalDecorators": true,
-//    "emitDecoratorMetadata": true,
-//  }
-//}
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "strict": true,
-    "baseUrl": ".",
-    "rootDir": ".",
-    "outDir": "dist",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
     "sourceMap": true,
-    "removeComments": true,
-    "experimentalDecorators": true,
     "target": "ES6",
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
     "moduleResolution": "node",
-    "importHelpers": true,
-    "strictPropertyInitialization": false,
-    "types": ["node"],
-    "typeRoots": ["node_modules/@types"]
-  },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+    "downlevelIteration": true,
+    "lib": ["es6", "dom.iterable", "dom"],
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+  }
 }
