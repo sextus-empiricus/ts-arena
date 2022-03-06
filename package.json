@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "tsc",
+    "postinstall": "tsc",
     "start:dev": "nodemon server.ts -e ts,js,scss,hbs",
     "sass:dev": "node-sass  -rw public/sass/ -o public/styles",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -37,8 +36,8 @@
     "mysql2": "^2.3.3",
     "uuid": "^8.3.2"
   },
-  "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
   "engines": {
     "node": "16.4.2"
-  }
+  },
+  "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src"
 }
